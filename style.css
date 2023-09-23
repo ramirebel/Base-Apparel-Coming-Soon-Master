@@ -1,0 +1,234 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&family=Poppins:wght@200;400;600&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 16px;
+    /* The body's width's and height, if not specefied, it is the same as the viewport's */
+}
+
+.container {
+    display: flex;
+    width: 100%;
+}
+
+.logo-mobile {
+    display: none;
+}
+
+.opening-notification-section {
+    background: url(images/bg-pattern-desktop.svg), linear-gradient(135deg, hsl(0, 0%, 100%), hsl(0, 100%, 98%)); 
+    /* They work with layers */
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    width: 58%; /* 58% of the body's, therefore 58% of the viewport */
+    height: 100vh;
+}   
+
+.opening-notification-section .logo-desktop {
+    margin-top: 8.125vh;
+    margin-left: 11.5vw;
+}
+
+.text-input-area {
+    padding: 17vh 13.25vw 20.25vh 11.5vw ;
+}
+
+.opening-notification-section h1 {
+    font-weight: 300;
+    font-size: 4rem;
+    text-transform: uppercase; 
+    letter-spacing: 1.08rem; /* 17.28px */
+    color: hsl(0, 36%, 70%);
+    margin-bottom: 2.5vh;
+}
+
+/* only use :nth-child() when all the children are matching elements (group of li nested inside of a ul for example) */
+
+.opening-notification-section h1 span {
+    font-weight: 600;
+    letter-spacing: 1.07rem;
+    line-height: 109.375%; /* 70px */
+    color: hsl(0, 6%, 24%);
+}
+
+/* Browsers do not break words down into letters when there isn't 
+enough space for the word. The p element squishy but the text does not squish 
+and so does the span element */
+
+.opening-notification-section p.announcement {
+    font-weight: 400;
+    letter-spacing: 0.005rem; /* 0.08px */
+    line-height: 175%; /* 28px */
+    color: hsl(0, 36%, 70%);
+    margin-bottom: 5vh;
+    /* No need to set the max-width of this p, the padding that I set 
+    will not allow it all to wrap into a single line */
+}
+
+.opening-notification-section .email-signup {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    position: relative; /* to create position context */
+}
+
+.opening-notification-section .email-signup input[type="email"] {
+    outline: 0; /* it does not affect the layout of the element */
+    border: 1px solid hsl(0, 36%, 70%);
+    border-radius: 28px;
+    width: 98%;
+    background: transparent;
+    padding-left: 2rem; /* 32px */
+    padding-top: 1.25rem; /* 20px */
+    padding-bottom: 1.25rem; 
+    font-size: 1rem;
+    font-weight: 300;
+}
+
+.opening-notification-section .email-signup input[type="email"]::placeholder {
+    color: hsl(0, 36%, 70%);
+}
+
+.opening-notification-section .email-signup button {
+    border: 0;
+    outline: 0;
+    border-radius: 28px;
+    position: absolute;
+    left: 82%;
+    background: linear-gradient(135deg, hsl(0, 80%, 86%), hsl(0, 74%, 74%));
+    box-shadow: 0 12px 16px rgba(206, 151, 151, 0.4);
+    cursor: pointer;
+}
+
+.opening-notification-section .email-signup button:hover {
+    background: linear-gradient(135deg, hsl(358, 76%, 92%), hsl(0, 77%, 88%));
+    box-shadow: 0 12px 16px 2px rgba(206, 151, 151, 0.45);
+}
+
+.opening-notification-section .email-signup button img {
+    padding: 1.1875rem 2.75rem; /* 18px 40px */
+}
+
+.opening-notification-section .email-signup img.error {
+    position: absolute;
+    left: 74%;
+    display: none;
+}
+
+.opening-notification-section .email-signup p.error {
+    top: 117%;
+    padding-left: 2rem;
+    font-size: 0.8125rem;
+    color: hsl(0, 93%, 68%);
+    position: absolute;
+    display: none;
+}
+
+.opening-notification-section form.error img.error, 
+.opening-notification-section form.error p.error {
+    display: block;
+}
+
+.opening-notification-section form.error input[type="email"] {
+    border: 2px solid hsl(0, 93%, 68%);
+}
+
+.hero-section {
+    background: url(images/hero-desktop.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    width: 48%;
+    height: 100vh;
+}
+
+
+@media (max-width: 767px) { 
+
+    body {
+        background-color: linear-gradient(135deg, hsl(0, 0%, 100%), hsl(0, 100%, 98%));
+        font-size: 14px;
+    }
+
+    .logo-mobile {
+        display: block;
+        padding: 5vh 0 5vh 8.5vw; 
+    }
+
+    .logo-mobile img {
+        width: 100px;
+        height: 21px;
+    }
+
+    .container {
+        flex-direction: column-reverse;
+    }
+
+    .hero-section {
+        background: url(images/hero-mobile.jpg);
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover; /* you have to reuse them when
+        you change the background */
+        width: 100%;
+        height: 250px;
+    }
+
+    .opening-notification-section {
+        background: none;
+        width: 100%; 
+        height: auto;
+    }
+
+    .opening-notification-section .logo-desktop {
+        display: none;
+    }
+
+    .text-input-area {
+        padding: 10vh 9vw 14vh 9vw;
+        text-align: center;
+    }
+
+    .opening-notification-section h1 {
+        font-size: 2.625rem; /* 42px */
+        letter-spacing: 0.60375rem; /* 9.66px */
+        margin-bottom: 0.875rem; /* I used rems here because I don't
+        need the website to be extra squeezy verticaly */
+    }
+
+    .opening-notification-section p.announcement {
+        margin-bottom: 2.125rem; /* 34px */
+    }
+
+    .opening-notification-section .email-signup input[type="email"] {
+        padding-left: 24px; /* I don't want this part to be responsive */
+        padding-top: 16px;
+        padding-bottom: 16px;
+        font-size: 14px;
+        width: 93%;
+    }
+
+    .opening-notification-section .email-signup button {
+        left: 79%;
+    }
+
+    .opening-notification-section .email-signup button img {
+        padding: 14px 26px;
+    }    
+
+    .opening-notification-section .email-signup img.error {
+        left: 68%;
+    }
+
+.opening-notification-section .email-signup p.error {
+        padding-left: 24px;
+    }
+
+}
